@@ -5,8 +5,6 @@
         <div class="col-sm-6 d-flex align-items-center mb-4">
             <h1 class="d-inline-block font-weight-normal ">Create a new server</h1>
         </div>
-
-
     </div>
 
 

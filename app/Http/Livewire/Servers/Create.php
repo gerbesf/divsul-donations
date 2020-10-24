@@ -41,6 +41,7 @@ class Create extends Component
 
         return redirect(route('servers'));
     }
+
     public function render()
     {
         return view('livewire.servers.create');

@@ -24,7 +24,7 @@ class Login extends Component
 
         $this->logging = true;
 
-        sleep(1);
+        sleep(1); // to ellegant login
 
         $this->validate();
 

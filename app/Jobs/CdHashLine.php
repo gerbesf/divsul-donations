@@ -32,13 +32,8 @@ class CdHashLine implements ShouldQueue
      */
     public function __construct( $line_content )
     {
-
         $index = 0;
         $this->line_content = collect(explode("\t",$line_content));
-       /* $this->line_content = collect(explode("\t",$line_content))->map(function ($obj) use($index) {
-            $index++;
-            return [$this->layout[$index-1]] = $obj;
-        })->toArray();*/
     }
 
     /**
@@ -49,12 +44,13 @@ class CdHashLine implements ShouldQueue
     public function handle()
     {
 
-
+        // Bind Line
         $bind = [];
         foreach($this->layout as $index=>$key){
             $bind[ $key ] = $this->line_content[ $index ];
         }
 
+        // Avaliable Scope
         $scope = [
             'nickname' => $bind['nickname'],
             'hash' => $bind['hash'],
@@ -62,21 +58,32 @@ class CdHashLine implements ShouldQueue
             'steam_tags' => $bind['steam_tags'],
         ];
 
+        // Get Index Profile
         $Profile = Profiles::firstOrCreate([
             'nickname' => $bind['nickname'],
             'hash' => $bind['hash'],
         ]);
 
+        // Update Steam Level
         $Profile->steam_level = $bind['steam_level'];
 
+        // Update Steam Tags
         if($bind['steam_tags']){
             $Profile->steam_tags = $this->getTags($bind['steam_tags']);
         }
 
+        // Save
         $Profile->save();
 
     }
 
+    /**
+     * Get Tags
+     * Return array from steam tags
+     *
+     * @param $string
+     * @return array
+     */
     public function getTags( $string ){
         $string = str_replace('(','',$string);
         $string = str_replace("\r",'',$string);
