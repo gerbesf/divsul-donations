@@ -16,6 +16,14 @@
                         <li><a href="{{ route('donations_adminq') }}?confirmed=true">Confirmed</a></li>
                     </ul>
                 </li>
+
+                <li class="nav-item">
+                    <a href="{{ route('expense') }}" class="nav-link ">
+                        <span class="pcoded-micon"><i class="fas fa-balance-scale"></i></span>
+                        <span class="pcoded-mtext">Register Expense</span>
+                    </a>
+                </li>
+
                 <li class="nav-item pcoded-menu-caption">
                     <label>Comunity</label>
                 </li>

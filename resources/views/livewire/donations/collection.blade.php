@@ -14,6 +14,7 @@
                 <th>Received</th>
                 <th>Created</th>
                 <th>Date Confirmed</th>
+                <th>Action</th>
             </tr>
             </thead>
             @foreach($donations as $donation)
@@ -38,21 +39,30 @@
                     <td>{{ $donation->currency }} <b>{{ $donation->amount }}</b></td>
                     <td>
                         @if($donation->amount_received)
-                            {{ $donation->currency_received }} <b> {{ $donation->amount_received }}</b>
-
-                            @if(!$donation->confirmation)
-                                <div><button class="btn btn-sm btn-success" wire:click="confirmDonation({{ $donation->id }})">Confirm Balance</button></div>
-                            @else
-                                AGORA SIM
-                            @endif
+                            {{ $donation->currency_received }} <b> {{ number_format($donation->amount_received )}}</b>
                         @else
-                            <a href="{{ route('donation_confirm',['id'=>$donation->id]) }}" class="btn btn-success btn-sm">Confirm Payment</a>
-
+                            @livewire('donations.input-set-amount',['id'=>$donation->id])
                         @endif
 
                     </td>
+
                     <td>{{ $donation->date_created->format(env('APP_DATEFORMAT')) }}</td>
                     <td>{{ $donation->date_confirmed }}</td>
+                    <td style="white-space: nowrap">
+
+
+                        @if(!$donation->confirmed)
+                            @if($donation->amount_received)
+                            <span><button class="btn btn-sm btn-success" wire:click="confirmDonation({{ $donation->id }})">Confirm Payment</button></span>
+                            @endif
+                            <span><button class="btn btn-sm btn-danger" wire:click="denyDonation({{ $donation->id }})">Deny Payment</button></span>
+                        @else
+                            @if(!$donation->confirmation)
+                                <a href="{{ route('donation_confirm',['id'=>$donation->id]) }}" class="btn btn-success btn-sm">Force Balance</a>
+                            @endif
+                        @endif
+
+                    </td>
                 </tr>
             @endforeach
         </table>

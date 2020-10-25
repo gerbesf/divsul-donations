@@ -33,4 +33,8 @@ class DonationsAdminController extends Controller
             'id_payment'=>$id
         ]);
     }
+
+    public function expense(){
+        return view('admin.donations.expense');
+    }
 }

@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Donations;
 
 use App\Jobs\DonationConfirm;
+use App\Models\Donations;
 use Livewire\Component;
 
 class Collection extends Component
@@ -18,6 +19,11 @@ class Collection extends Component
         dispatch( new DonationConfirm( $id , session()->get('user_id')));
     }
 
+
+    public function denyDonation($id_donation){
+
+        Donations::where('id',$id_donation)->delete();
+    }
     public function render()
     {
         return view('livewire.donations.collection',[

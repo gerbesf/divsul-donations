@@ -62,7 +62,7 @@
                         </div>
                     </div>
 
-                    <div>
+                    {{--<div>
                         <h5>Payment Status</h5> <span class="float-right">
                         @if($confirmed=='1')
                                 <span class="badge badge-success">Confirmed</span>
@@ -81,7 +81,7 @@
                             <input type="radio" id="confirmedfalse"  wire:model="confirmed"  value="0" class="custom-control-input">
                             <label class="custom-control-label" for="confirmedfalse">Payment Pending</label>
                         </div>
-                    </div>
+                    </div>--}}
                     <div class="row">
                         <div class="@if($currency==$currency_actual) col-md-6 @else col-md-4 @endif">
 

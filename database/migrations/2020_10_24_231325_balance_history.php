@@ -19,6 +19,7 @@ class BalanceHistory extends Migration
             $table->bigInteger('id_profile')->nullable();
             $table->bigInteger('id_donation')->nullable();
             $table->string('action');
+            $table->string('description')->nullable();
             $table->float('amount');
             $table->timestamp('timestamp');
         });

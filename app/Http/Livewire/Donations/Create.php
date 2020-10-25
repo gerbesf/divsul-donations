@@ -26,7 +26,7 @@ class Create extends Component
 
     public $id_method=9;
     public $currency='BRL';
-    public $amount = 57.66;
+    public $amount = '';
     public $amount_received = '';
     public $confirmed=0;
     public $hide_profile=0;
@@ -51,6 +51,10 @@ class Create extends Component
     }
 
     public function registerDonation(){
+
+        if( $this->id_method == '0' ){
+            return false;
+        }
 
         $amount_received = ( $this->amount_received ?: $this->amount);
         $amount_received = number_format($amount_received,2,'.','');
@@ -79,6 +83,7 @@ class Create extends Component
             Donations::create($scope);
         }
 
+        return redirect(route('donations_admin').'?confirmed=false');
     }
 
     public function formatNumber(){

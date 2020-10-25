@@ -39,7 +39,6 @@ class DonationConfirm implements ShouldQueue
     public function handle()
     {
         $this->donation = Donations::where('id',$this->id_donation)->first();
-       # dd($this->donation);
 
         Donations::where('id',$this->id_donation)->update([
             'date_confirmed'=>Carbon::now(),
@@ -47,8 +46,6 @@ class DonationConfirm implements ShouldQueue
         ]);
 
         $this->addBalance();
-
-        // date_confirmed
     }
 
     public function addBalance(){

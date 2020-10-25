@@ -21,7 +21,7 @@ class Donations extends Migration
             $table->bigInteger('id_profile');
             $table->bigInteger('id_method');
             $table->string('currency');
-            $table->string('currency_received');
+            $table->string('currency_received')->default('BRL');
             $table->float('amount');
             $table->float('amount_received')->nullable();
             $table->json('receipt')->nullable();

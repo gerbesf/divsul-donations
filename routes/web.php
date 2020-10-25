@@ -18,6 +18,16 @@ Route::group([
 ],function(){
 
     Route::get('/','LandingController@landing');
+    Route::get('/how_to_donate','LandingController@how_to_donate')->name('how_to_donate');
+    Route::get('/donation/register','LandingController@send_confirmation')->name('send_confirmation');
+    Route::post('/donation/register','LandingController@send_register')->name('send_register');
+    Route::get('/history','LandingController@history')->name('history');
+    Route::get('/contact','LandingController@contact')->name('contact');
+
+    Route::get('locale/{locale}', function ($locale){
+        session()->put('locale',$locale);
+        return redirect()->back();
+    });
 
 });
 
@@ -43,6 +53,7 @@ Route::group([
     Route::get('/donations/create','DonationsAdminController@create')->name('donations_create');
     Route::get('/donations/confirm/{id}','DonationsAdminController@confirmPayment')->name('donation_confirm');
     Route::get('/donations/players/search','DonationsAdminController@search')->name('donations_players_search');
+    Route::get('/expense','DonationsAdminController@expense')->name('expense');
 
     Route::get('/clans','ClansController@index')->name('clans');
 
