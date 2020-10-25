@@ -40,7 +40,6 @@ class ServerSync implements ShouldQueue
 
         try {
 
-
             $response = Cache::remember('query_hash_'.$this->server_id,100,function (){
                 return Curl::to($this->server->endpoint_cd_hash)
                     ->withAuthorization('Basic '.base64_encode($this->server->endpoint_username.':'.$this->server->endpoint_password))

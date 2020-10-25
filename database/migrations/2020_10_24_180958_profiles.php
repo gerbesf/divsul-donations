@@ -17,6 +17,7 @@ class Profiles extends Migration
             $table->id();
             $table->bigInteger('id_clan')->nullable();
             $table->string('id_steam')->nullable();
+            $table->integer('points')->default(0);
             $table->string('nickname');
             $table->string('hash');
             $table->integer('steam_level')->nullable();

@@ -13,10 +13,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::group([
+    'namespace'=>'\App\Http\Controllers'
+],function(){
 
+    Route::get('/','LandingController@landing');
+
+});
 
 Route::group([
     'prefix'=>'auth',
@@ -33,7 +36,14 @@ Route::group([
     'middleware'=>'admin_loggued'
 ],function(){
     Route::get('/','AdminController@index')->name('admin');
+
+    Route::get('/donations/methods','AdminController@donations_methods')->name('donations_methods');
     Route::get('/donations','DonationsAdminController@index')->name('donations_admin');
+    Route::get('/donations/q','DonationsAdminController@index')->name('donations_adminq');
+    Route::get('/donations/create','DonationsAdminController@create')->name('donations_create');
+    Route::get('/donations/confirm/{id}','DonationsAdminController@confirmPayment')->name('donation_confirm');
+    Route::get('/donations/players/search','DonationsAdminController@search')->name('donations_players_search');
+
     Route::get('/clans','ClansController@index')->name('clans');
 
     Route::get('/players','PlayersController@index')->name('players');

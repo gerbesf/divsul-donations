@@ -17,14 +17,15 @@
     <meta name="description" content="" />
     <meta name="keywords" content="">
     <meta name="author" content="Ferreira - Divsul.org" />
-    <!-- Favicon icon -->
+
     <link rel="icon" href="{{ Request::root() }}/assets/images/favicon.png" type="image/x-icon">
 
-    <!-- data tables css -->
     <link rel="stylesheet" href="{{ Request::root() }}/assets/css/plugins/dataTables.bootstrap4.min.css">
-    <!-- vendor css -->
     <link rel="stylesheet" href="{{ Request::root() }}/assets/css/style.css">
     <script src="{{ Request::root() }}/assets/js/vendor-all.min.js"></script>
+    <script src="{{ Request::root() }}/js/app.js"></script>
+    <link rel="stylesheet" href="{{ Request::root() }}/assets/css/plugins/select2.min.css">
+    <script src="{{ Request::root() }}/assets/js/plugins/select2.full.min.js"></script>
 
     @livewireStyles
 

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
+
 <head>
     <title>{{ env('APP_NAME') }}</title>
     <!-- HTML5 Shim and Respond.js IE11 support of HTML5 elements and media queries -->
@@ -16,48 +17,25 @@
     <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge" /> -->
     <meta name="description" content="" />
     <meta name="keywords" content="">
-    <meta name="author" content="Ferreira - Divsul.org" />
+    <meta name="author" content="Codedthemes" />
     <!-- Favicon icon -->
-    <link rel="icon" href="{{ Request::root() }}/assets/images/favicon.png" type="image/x-icon">
+    <link rel="icon" href="assets/images/favicon.png" type="image/x-icon">
 
-    <!-- data tables css -->
-    <link rel="stylesheet" href="{{ Request::root() }}/assets/css/plugins/dataTables.bootstrap4.min.css">
     <!-- vendor css -->
-    <link rel="stylesheet" href="{{ Request::root() }}/assets/css/style.css">
-    <script src="{{ Request::root() }}/assets/js/vendor-all.min.js"></script>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script src="assets/js/vendor-all.min.js"></script>
 
     @livewireStyles
 
 </head>
-<body class="">
-<!-- [ Pre-loader ] start -->
-<div class="loader-bg">
-    <div class="loader-track">
-        <div class="loader-fill"></div>
-    </div>
-</div>
-<!-- [ Pre-loader ] End -->
 
-<!-- [ Main Content ] start -->
-<div class="pcoded-main-container">
-    <div class="pcoded-content container">
-        @yield('main')
-        @yield('content')
-    </div>
-</div>
+<body class="landing-page">
+
+@yield('main')
 @livewireScripts
 
-<!-- Required Js -->
-<script src="{{ Request::root() }}/assets/js/plugins/bootstrap.min.js"></script>
-<script src="{{ Request::root() }}/assets/js/pcoded.min.js"></script>
-
-<!-- datatable Js -->
-<script src="{{ Request::root() }}/assets/js/plugins/jquery.dataTables.min.js"></script>
-<script src="{{ Request::root() }}/assets/js/plugins/dataTables.bootstrap4.min.js"></script>
-<script>
-    $('#usertable').DataTable();
-</script>
-
+<script src="assets/js/plugins/bootstrap.min.js"></script>
+<script src="assets/js/pcoded.min.js"></script>
 
 </body>
 

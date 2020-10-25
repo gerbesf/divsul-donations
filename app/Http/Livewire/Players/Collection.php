@@ -17,7 +17,7 @@ class Collection extends Component
         if( strlen( $this->search )>=1) {
 
             return view('livewire.players.collection',[
-                'players'=>Profiles::where('nickname','like','%'.$this->search.'%')->paginate('50')
+                'players'=>Profiles::where('nickname','like','%'.$this->search.'%')->orWhere('hash','like','%'.$this->search.'%')->paginate('50')
             ]);
 
         }else{

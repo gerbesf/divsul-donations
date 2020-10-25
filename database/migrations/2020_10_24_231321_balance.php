@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class DonationMethods extends Migration
+class Balance extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,13 @@ class DonationMethods extends Migration
      */
     public function up()
     {
-        Schema::create('donations_methods', function (Blueprint $table) {
+        Schema::create('balance', function (Blueprint $table) {
             $table->id();
-            $table->boolean('active');
-            $table->string('name');
-            $table->text('logo');
-            $table->text('content');
+
+            $table->string('currency')->default('R$');
+            $table->float('amount')->default(0);
+            $table->float('meta')->default(135);
+
             $table->timestamps();
         });
     }
@@ -30,6 +31,6 @@ class DonationMethods extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('donations_methods');
+        Schema::dropIfExists('balance');
     }
 }

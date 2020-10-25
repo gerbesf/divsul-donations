@@ -2,10 +2,22 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class DonationsMethods extends Model
 {
-    use HasFactory;
+    protected $table = 'donations_methods';
+
+    protected $fillable = [
+        'active',
+        'name',
+        'logo',
+        'content',
+    ];
+
+    protected $casts =[
+        'active'=>'boolean'
+    ];
+
+    public $timestamps = true;
 }

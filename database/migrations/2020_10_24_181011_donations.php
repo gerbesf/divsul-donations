@@ -13,16 +13,22 @@ class Donations extends Migration
      */
     public function up()
     {
+        Schema::dropIfExists('donations');
         Schema::create('donations', function (Blueprint $table) {
             $table->id();
-            $table->boolean('confirmed');
+            $table->boolean('confirmed')->default(false);
+            $table->boolean('hide_profile')->default(false);
             $table->bigInteger('id_profile');
             $table->bigInteger('id_method');
-            $table->float('amount');
             $table->string('currency');
+            $table->string('currency_received');
+            $table->float('amount');
             $table->float('amount_received')->nullable();
             $table->json('receipt')->nullable();
-            $table->timestamps();
+            $table->timestamp('date_created');
+            $table->timestamp('date_confirmed')->nullable();
+            $table->index(['id_profile']);
+            #$table->index(['month_index','year_index']);
         });
     }
 
