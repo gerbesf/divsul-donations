@@ -33,13 +33,13 @@
                         <span class="pcoded-mtext">Players</span>
                     </a>
                 </li>
-                <li class="nav-item pcoded-hasmenu">
+                {{--<li class="nav-item pcoded-hasmenu">
                     <a href="#!" class="nav-link "><span class="pcoded-micon"><i class="fas fa-users"></i></span><span class="pcoded-mtext text-muted">Clans</span></a>
                     <ul class="pcoded-submenu">
                         <li><a href="#">Actives</a></li>
                         <li><a href="#">Create</a></li>
                     </ul>
-                </li>
+                </li>--}}
                 <li class="nav-item pcoded-menu-caption">
                     <label>Settings</label>
                 </li>

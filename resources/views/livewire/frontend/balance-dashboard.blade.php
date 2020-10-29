@@ -4,14 +4,10 @@
     <section class="">
         <div class="">
             <div class="container-fluid">
-                <div class="pt-5 pb-3">
-
-                    <h2 class="font-weight-lighter text-center">{{ __('app.accountability') }}</h2>
-                </div>
                 <div class="row  justify-content-center ">
                     <div class="col-md-3">
                         <div class=" @if($month_dontations_amount==0) bg-dark @elseif($month_dontations_amount<=$meta) bg-warning @else bg-success @endif p-3 mb-3 rounded-lg py-4 text-">
-                            <h1 class="text-white"><span class="fas fa-star  text-white"></span> <span class="float-right">{{ $count }}</span></h1>
+                            <h1 class="text-white"><span class="fas fa-users  text-white"></span> <span class="float-right">{{ $count }}</span></h1>
                             <div>
                                 <span class="text-uppercase small text-white">{{ __('app.monthly_donations') }}</span>
                             </div>
@@ -72,18 +68,19 @@
                         <div class="col-md-5">
 
                             <div class="py-5">
-                                <div class="text-secondary h4 font-weight-light text-center">{{ __('app.waiting_payment') }} ({{ $pending_donations }})</div>
 
-                                <div class="bg-white border rounded-lg mb-3">
-                                    <div class="py-1 text-secondary">
+                                <h4 class="py-3 text-left font-weight-bolder text-center">  <span class="fas fa-spy mr-1"></span>{{ __('app.waiting_payment') }} ({{ $pending_donations }})</h4>
+
                                         @foreach($pending_donations_amount as $currency=>$items)
-                                            <div class="row no-gutters border-bottom border-light py-2">
+                                    <div class="bg-white border rounded-lg mb-3">
+                                        <div class="py-1 text-secondary">
+                                            <div class="row no-gutters  py-2">
                                                 <div class="col-md-6 text-right pr-1">{{ $currency }}</div>
-                                                <div class="col-md-6 pl-1 font-weight-bolder">{{ collect($items)->sum('amount') }}</div>
+                                                <div class="col-md-6 pl-1 font-weight-bolder">{{ number_format(collect($items)->sum('amount'),2,',','.') }}</div>
                                             </div>
-                                        @endforeach
+                                        </div>
                                     </div>
-                                </div>
+                                        @endforeach
                             </div>
                         </div>
                     </div>

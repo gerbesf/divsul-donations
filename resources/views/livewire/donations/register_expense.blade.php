@@ -8,7 +8,7 @@
             <div class="form-group">
                 <label for="exampleInputEmail1">Description</label>
                 <input type="text" class="form-control" wire:model="description" placeholder="Ex: DDOS Protection">
-                @error('name') <span class="small text-danger">{{ $message }}</span> @enderror
+                @error('description') <span class="small text-danger">{{ $message }}</span> @enderror
             </div>
 
 

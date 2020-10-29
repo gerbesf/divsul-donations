@@ -24,7 +24,7 @@ class Create extends Component
         'VEF'=>'Bolívar',
     ];
 
-    public $id_method=9;
+    public $id_method=0;
     public $currency='BRL';
     public $amount = '';
     public $amount_received = '';

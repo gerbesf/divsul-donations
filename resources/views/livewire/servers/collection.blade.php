@@ -45,15 +45,15 @@
 
                         </div>
                         <div class="text-center ">
-                            <div class="row no-gutters">
+                            <div class="row justify-content-center no-gutters pb-4">
                                 <div class="col-md-4">
                                     <a class="btn btn-xs rounded-0 btn-primary btn-block" href="{{ route('server_modify',['id'=>$server->id]) }}" >
                                       <span class=" fas fa-edit"></span>  Modify</a>
-                                </div>
+                                </div>{{--
                                 <div class="col-md-4">
                                     <a class="btn btn-xs rounded-0 btn-info btn-block" href="#" wire:click="syncServer('{{ $server->id }}')" >
                                         <span class=" fas fa-cloud-download-alt"></span>    Sync </a>
-                                </div>
+                                </div>--}}
                                 <div class="col-md-4">
                                     <a class="btn btn-xs rounded-0 btn-dark btn-block" href=" {{ route('server_destroy',['id'=>$server->id]) }}">
                                         <span class=" fas fa-trash"></span>    Destroy </a>

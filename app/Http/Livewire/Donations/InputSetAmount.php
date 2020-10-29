@@ -21,6 +21,8 @@ class InputSetAmount extends Component
            'amount_received' => number_format($this->amount_received,2,'.','')
         ]);
 
+        return redirect(route('donations_admin').'?confirmed=false');
+
     }
 
     public function render()

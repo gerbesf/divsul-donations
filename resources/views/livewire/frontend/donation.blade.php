@@ -2,7 +2,8 @@
 
     @if($balance)
         <div class="container">
-            <h4 class="py-3 text-left font-weight-bolder text-center">  <span class="fas fa-calendar-check mr-1"></span> {{ __('app.this_month') }}</h4>
+
+
             <div class="table-responsive">
                 <table class="table border font-weight-normal small table-sm rounded table-sm m-0 bg-white shadow table-borderless table-striped">
                     <thead>

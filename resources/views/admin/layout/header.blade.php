@@ -3,7 +3,7 @@
 
     <div class="m-header">
         <a class="mobile-menu d-lg-none" id="mobile-collapse" href="#!"><span></span></a>
-        <a href="index.html" class="b-brand">
+        <a href="{{ route('admin') }}" class="b-brand">
 
             <h3 class="m-0 text-dark">  {{ env('APP_NAME') }} </h3>
 

@@ -61,17 +61,17 @@
                         <a href="/">{{ __('menu.home') }}</a>
                     </li>
                     <li class="nav-item">
+                        <a href="{{ route('history') }}">{{ __('menu.history') }}</a>
+                    </li>
+                    <li class="nav-item">
                         <a href="{{ route('how_to_donate') }}">{{ __('menu.how_to_donate') }}</a>
                     </li>
                     <li class="nav-item">
                         <a href="{{ route('send_confirmation') }}">{{ __('menu.send_confirmation') }}</a>
                     </li>
-                    <li class="nav-item">
-                        <a href="{{ route('history') }}">{{ __('menu.history') }}</a>
-                    </li>
-                    <li class="nav-item">
+                  {{--  <li class="nav-item">
                         <a href="{{ route('contact') }}">{{ __('menu.contact') }}</a>
-                    </li>
+                    </li>--}}
                     <li class="nav-item">
                         <div class="dropdown">
                             <a class="dropdown-toggle h-drop" href="#" data-toggle="dropdown">
@@ -94,7 +94,7 @@
 </section>
 <header class=" headerpos-fixed bg-muted meta-header">
     <div class="container">
-        <div class="col-sm-12 text-center">
+        <div class="col--12 text-left">
             <h1 class="text-dark"> {{ __('app.'.$title) }}</h1>
             <p class="mb-0 text-secondary"> {{ __('app.'.$description) }}</p>
         </div>
@@ -104,15 +104,10 @@
 @yield('main')
 
    <div class="container">
-       <div class="row no-gutters">
+       <div class="row no-gutters justify-content-center text-center">
            <div class="col-md-6">
                <div class="p-4">
-                   <small>{{ env('APP_NAME') }}</small>
-               </div>
-           </div>
-           <div class="col-md-6 text-lg-right">
-               <div class="p-4">
-
+                   <small>{{ env('APP_NAME') }} - <a href="https://divsul.org?origin=donations" target="_blank" >divsul.org</small>
                </div>
            </div>
        </div>

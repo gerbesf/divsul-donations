@@ -1,10 +1,14 @@
 <?php
 
 return [
+    'donation_method'=>'Meio de pagamento',
+    'currency'=>'Moeda / Currency',
+    'donation_amount'=>'Valor / Amount',
+    'hash'=>'[PR] - CD HASH',
     'privacy'=>'Privacidade',
     'hide_profile'=>'Esconder meu perfil',
-    'welcome_title'=>'Doações',
-    'welcome_description'=>'Central de transparencia',
+    'welcome_title'=>'Seja bem vindo(a)',
+    'welcome_description'=>'Você está na central de doações da Divsul.org',
     'accountability'=>'Status',
     'help_title'=>'Ajude a manter a comunidade ativa',
     'help_description'=>'A comunidade depende de você!',
@@ -14,7 +18,7 @@ return [
     'total_avaliable'=>'Em caixa',
     'donate_now'=>'Quero Doar',
     'how_to_donate_title'=>'Como doar',
-    'how_to_donate_description'=>'',
+    'how_to_donate_description'=>'Verifique as nossas formas de recibento',
     'tab_important'=>'Inicio',
     'tab_methods'=>'Métodos de pagamento ',
     'tab_send_donation'=>'Registrar doação',

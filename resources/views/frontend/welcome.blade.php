@@ -16,21 +16,21 @@
                     <div class=" col-md-11 col-xl-8 ">
                         <div class="bg-white rounded border p-4 ">
                             <div class="row justify-content-center ">
-                                <div class="col-md-6 ">
+                                <div class="col-md-8 ">
                                     <div class=" ">
-                                        <h1 class="text-success font-weight-normal mt-4 mb-0 ">
+                                        <h1 class="text-success font-weight-bolder mt-4 ">
                                             {{ __('app.help_title') }}
                                         </h1>
-                                        <h2 class=" text-secondary font-weight-light">{{ __('app.help_description') }}</h2>
-                                        <div class="py-5">
+                                        <h2 class=" text-secondary font-weight-normal">{{ __('app.help_description') }}</h2>
+                                        <div class="pt-4">
                                             <div>
-                                                <button type="button" class="btn btn-success btn-lg btn-block px-md-4">{{ __('app.donate_now') }}</button>
+                                                <a href="{{route('how_to_donate')}}" class="btn btn-success btn-lg btn-block px-md-4">{{ __('app.donate_now') }}</a>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
 
-                                <div class="col-md-6  d-none d-md-inline-block">
+                                <div class="col-md-4  d-none d-md-inline-block">
                                     <div class="w- m-auto">
                                         <img src="{{ asset('assets/images/SJ4RbE3.jpg') }}" class="w-100 rounded">
                                     </div>
@@ -43,6 +43,7 @@
             </div>
         </div>
     </section>
+
 
 
 
