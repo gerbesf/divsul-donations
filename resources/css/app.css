@@ -2,3 +2,9 @@
 .bg-black{
     background: rgb(37, 37, 37)!important;
 }
+
+.pagination .page-item { }
+.pagination .page-item span {}
+
+.page-link { border:0!important; color: #252525 }
+.page-item.active .page-link { background: #252525!important; color: #fff!important;}

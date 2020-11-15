@@ -29,7 +29,7 @@
 
 </head>
 
-<body class="">
+<body class="bg-light">
 
 
 
@@ -61,7 +61,7 @@
                         <a href="/">{{ __('menu.home') }}</a>
                     </li>
                     <li class="nav-item">
-                        <a href="{{ route('history') }}">{{ __('menu.history') }}</a>
+                        <a href="{{ route('history') }}?balance=all">{{ __('menu.history') }}</a>
                     </li>
                     <li class="nav-item">
                         <a href="{{ route('how_to_donate') }}">{{ __('menu.how_to_donate') }}</a>
@@ -69,10 +69,10 @@
                     <li class="nav-item">
                         <a href="{{ route('send_confirmation') }}">{{ __('menu.send_confirmation') }}</a>
                     </li>
-                  {{--  <li class="nav-item">
-                        <a href="{{ route('contact') }}">{{ __('menu.contact') }}</a>
-                    </li>--}}
-                    <li class="nav-item">
+                    {{--  <li class="nav-item">
+                          <a href="{{ route('contact') }}">{{ __('menu.contact') }}</a>
+                      </li>--}}
+                    {{--<li class="nav-item">
                         <div class="dropdown">
                             <a class="dropdown-toggle h-drop" href="#" data-toggle="dropdown">
                                 <span class="flag-icon flag-icon-{{ session()->get('locale') }}"></span>
@@ -84,7 +84,7 @@
                                 </ul>
                             </div>
                         </div>
-                    </li>
+                    </li>--}}
                 </ul>
 
             </div>
@@ -92,26 +92,34 @@
     </nav>
 
 </section>
+
+@if(isset($title))
 <header class=" headerpos-fixed bg-muted meta-header">
-    <div class="container">
-        <div class="col--12 text-left">
-            <h1 class="text-dark"> {{ __('app.'.$title) }}</h1>
-            <p class="mb-0 text-secondary"> {{ __('app.'.$description) }}</p>
+    <div class="pcoded-content container">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <h3 class="text-dark"> {{ __('app.'.$title) }}</h3>
+                <p class="mb-0 text-secondary"> {{ __('app.'.$description) }}</p>
+            </div>
         </div>
     </div>
 </header>
+@endif
 
 @yield('main')
 
-   <div class="container">
-       <div class="row no-gutters justify-content-center text-center">
-           <div class="col-md-6">
-               <div class="p-4">
-                   <small>{{ env('APP_NAME') }} - <a href="https://divsul.org?origin=donations" target="_blank" >divsul.org</small>
-               </div>
-           </div>
-       </div>
-   </div>
+<div class="pcoded-content container">
+    <div class="row ">
+        <div class="col-md-6">
+            <div class="">
+                <iframe src="https://ghbtns.com/github-btn.html?user=gerbesf&repo=divsul-donations&type=star&count=true" frameborder="0" scrolling="0" width="150" height="20" title="GitHub"></iframe>
+            </div>
+        </div>
+        <div class="col-md-6 text-lg-right">
+            <small>{{ env('APP_NAME') }} - <a href="{{ env('APP_URL_COPY') }}" target="_blank" >{{ str_replace(['http://','https://'],'',env('APP_URL_COPY')) }}</small>
+        </div>
+    </div>
+</div>
 
 @livewireScripts
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css" integrity="sha512-Cv93isQdFwaKBV+Z4X8kaVBYWHST58Xb/jVOcV9aRsGSArZsgAnFIhMpDoMDcFNoUtday1hdjn0nGp3+KZyyFw==" crossorigin="anonymous" />

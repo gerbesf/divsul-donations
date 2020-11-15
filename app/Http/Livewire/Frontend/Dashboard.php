@@ -7,7 +7,7 @@ use App\Models\Donations;
 use Carbon\Carbon;
 use Livewire\Component;
 
-class BalanceDashboard extends Component
+class Dashboard extends Component
 {
 
 
@@ -21,7 +21,9 @@ class BalanceDashboard extends Component
     public $pending_donations_amount = 0;
 
     public function populate(){
+
         $Balance = Balance::first();
+
         $this->currency = $Balance->currency;
         $this->meta = $Balance->meta;
         $this->amount = $Balance->amount;
@@ -31,6 +33,9 @@ class BalanceDashboard extends Component
             ->whereMonth('date_created', '=', Carbon::now()->format('m'))
             ->count();
 
+       /* dd([
+            date('Y'),Carbon::now()->format('m')
+        ]);*/
         $this->month_dontations_amount = Donations::where('confirmed',true)
             ->whereYear('date_created', '=', date('Y'))
             ->whereMonth('date_created', '=', Carbon::now()->format('m'))
@@ -52,6 +57,6 @@ class BalanceDashboard extends Component
     public function render()
     {
         $this->populate();
-        return view('livewire.frontend.balance-dashboard');
+        return view('livewire.frontend.dashboard');
     }
 }

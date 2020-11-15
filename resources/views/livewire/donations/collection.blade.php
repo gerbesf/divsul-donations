@@ -1,22 +1,29 @@
 <div>
 
-    <div>
+    <div class="card">
 
-        <table class="table">
+        <table class="table border-0 mb-0">
             <thead>
             <tr>
-                <th>ID</th>
-                <th>Status</th>
-                <th>Privacy</th>
-                <th>Player</th>
-                <th>Method</th>
-                <th>Declared</th>
-                <th>Received</th>
-                <th>Created</th>
-                <th>Date Confirmed</th>
-                <th>Action</th>
+                <th class="border-top-0">ID</th>
+                <th class="border-top-0">Status</th>
+                <th class="border-top-0">Privacy</th>
+                <th class="border-top-0">Player</th>
+                <th class="border-top-0">Method</th>
+                <th class="border-top-0">Declared</th>
+                <th class="border-top-0">Received</th>
+                <th class="border-top-0">Created</th>
+                @if( request()->get('confirmed') == 'true')
+                <th class="border-top-0">Date Confirmed</th>
+                @endif
+                <th class="border-top-0">Action</th>
             </tr>
             </thead>
+            @if( count($donations)==0)
+                <tr>
+                    <td>Empty</td>
+                </tr>
+            @endif
             @foreach($donations as $donation)
                 <tr>
                     <td>{{ $donation->id }}</td>
@@ -35,7 +42,10 @@
                         @endif
                     </td>
                     <td>{{ $donation->profile->nickname }}</td>
-                    <td>{{ $donation->method->name }}</td>
+                    <td>
+                        <div>{{ $donation->method->name }}</div>
+                        <div><small>{{ $donation->email }}</small></div>
+                    </td>
                     <td>{{ $donation->currency }} <b>{{ $donation->amount }}</b></td>
                     <td>
                         @if($donation->amount_received)
@@ -47,10 +57,10 @@
                     </td>
 
                     <td>{{ $donation->date_created->format(env('APP_DATEFORMAT')) }}</td>
+                    @if( request()->get('confirmed') == 'true')
                     <td>{{ $donation->date_confirmed }}</td>
+                    @endif
                     <td style="white-space: nowrap">
-
-
                         @if(!$donation->confirmed)
                             @if($donation->amount_received)
                             <span><button class="btn btn-sm btn-success" wire:click="confirmDonation({{ $donation->id }})">Confirm Payment</button></span>
@@ -61,7 +71,6 @@
                                 <a href="{{ route('donation_confirm',['id'=>$donation->id]) }}" class="btn btn-success btn-sm">Force Balance</a>
                             @endif
                         @endif
-
                     </td>
                 </tr>
             @endforeach

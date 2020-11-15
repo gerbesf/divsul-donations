@@ -5,18 +5,26 @@ return [
     'currency'=>'Moeda / Currency',
     'donation_amount'=>'Valor / Amount',
     'hash'=>'[PR] - CD HASH',
+    'email'=>'E-mail',
     'privacy'=>'Privacidade',
+    'player'=>'Jogador',
+    'amount'=>'total',
+    'date'=>'data',
+    'or'=>'ou',
+    'description'=>'descrição',
     'hide_profile'=>'Esconder meu perfil',
-    'welcome_title'=>'Seja bem vindo(a)',
-    'welcome_description'=>'Você está na central de doações da Divsul.org',
+    'welcome_title'=>'Seja bem vindo',
+    'welcome_description'=>'Você está na central de doações & transparência da divsul.org',
     'accountability'=>'Status',
     'help_title'=>'Ajude a manter a comunidade ativa',
     'help_description'=>'A comunidade depende de você!',
+    'see_donations'=>'Ver todas as doações',
     'monthly_goal'=>'Meta Mensal',
     'monthly_donations'=>'Doações neste mês',
     'waiting_payment'=>'Aguardando Confirmação',
+    'waiting_payment_description'=>'Saldo aguardando confirmação pelos doadores',
     'total_avaliable'=>'Em caixa',
-    'donate_now'=>'Quero Doar',
+    'donate_now'=>'Doar agora',
     'how_to_donate_title'=>'Como doar',
     'how_to_donate_description'=>'Verifique as nossas formas de recibento',
     'tab_important'=>'Inicio',
@@ -30,8 +38,16 @@ return [
     'pending_confirmation'=>'Aguardando confirmação',
     'empty_results' => 'Não há registro',
     'send_confirmation_title'=>'Enviar comprovante',
-    'send_confirmation_description'=>'Registre a sua doação para receber pontos'
+    'send_confirmation_description'=>'Registre a sua doação para receber pontos',
+    'tab_all_records'=>'Todos os registros',
+    'tab_donations'=>'Doações recebidas',
+    'tab_expenses'=>'Despesas do projeto',
+    'error_title'=>'Deu ruim',
+    'error_description'=>'Algo de errado não está certo.',
+    'error'=>[
+        'not_found'=>'Não encontrado',
+        'not_found_description'=>'Endereço de consulta não existe',
+    ]
 ];
 
 
-//  MONTHLY MONTHLY_DONATIONS

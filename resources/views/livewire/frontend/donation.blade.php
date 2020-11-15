@@ -1,22 +1,46 @@
 <div>
 
     @if($balance)
-        <div class="container">
+        <div class="pcoded-content container">
 
 
+            <div class="pb-3 text-center">
+                <ul class="nav nav-tabs mb-3" id="myTab" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link @if( request()->get('balance') == 'all') active @endif text-uppercase" href="{{ route('history') }}?balance=all">{{ __('app.tab_all_records') }}</a>
+
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link @if( request()->get('balance') == 'increment') active @endif text-uppercase"  href="{{ route('history') }}?balance=increment">{{ __('app.tab_donations') }}</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link @if( request()->get('balance') == 'decrement') active @endif text-uppercase"  href="{{ route('history') }}?balance=decrement">{{ __('app.tab_expenses') }}</a>
+                    </li>
+                </ul>
+
+
+{{--
+
+                <button wire:click="setBalance('all')" class="btn btn-sm @if($balance_query=="all") btn-dark @else btn-link text-muted @endif ">All records</button>
+                <button wire:click="setBalance('increment')" class="btn btn-sm @if($balance_query=="increment") btn-dark @else btn-link text-muted @endif">Donations</button>
+                <button wire:click="setBalance('decrement')" class="btn btn-sm @if($balance_query=="decrement") btn-dark @else btn-link text-muted @endif">Expenses</button>
+--}}
+
+
+            </div>
             <div class="table-responsive">
                 <table class="table border font-weight-normal small table-sm rounded table-sm m-0 bg-white shadow table-borderless table-striped">
                     <thead>
                     <tr>
-                        <th class="text-lg-right"  style="width:55px">Date</th>
-                        <th  class=" " style="width:55px"></th>
+                        <th class="text-lg-right"  style="width:55px">{{ __('app.date') }}</th>
+                        {{--<th  class=" " style="width:55px"></th>--}}
+                        <th>{{ __('app.player') }} {{ __('app.or') }} {{ __('app.description') }}</th>
                         <th  class=" " style="width:155px">Amount</th>
-                        <th>Player</th>
                     </tr>
                     </thead>
-                    @if( count($balance) == 0 )
+                    @if( !count($balance) )
                         <tr>
-                            <td colspan="4" class="text-center">{{ __('app.empty_results') }}</td>
+                            <td colspan="3" class="text-center">{{ __('app.empty_results') }}</td>
                         </tr>
 
                     @endif
@@ -25,22 +49,6 @@
                             <td class="text-right align-middle ">
                                 {{ \Carbon\Carbon::parse($item_confirmed->timestamp)->format(env('APP_DATEFORMAT')) }}
                             </td>
-
-                        @if($item_confirmed->action=='increment')
-                                <td class="text-success align-middle text-center " >
-                                    <span class="font-weight-bolder text-success"> <span class="fas fa-arrow-up f-10"></span></span>
-                                </td>
-                                <td class="text-success text-success font-weight-normal align-middle ">
-                                    R$ {{ number_format($item_confirmed->amount,2) }}
-                                </td>
-                            @else
-                                <td class="text-danger align-middle text-center " >
-                                    <span class="font-weight-bolder text-danger"> <span class="fas fa-arrow-down f-10"></span></span>
-                                </td>
-                                <td class=" text-danger font-weight-normal align-middle ">
-                                    R$ {{ number_format($item_confirmed->amount,2) }}
-                                </td>
-                            @endif
 
                                 <td class="align-middle ">
                                     @if($item_confirmed->donation)
@@ -60,14 +68,36 @@
                                     <div class="">D-{{ $item_confirmed->donation->id }}</div>
                                 @endif
                             </td>--}}
+
+                            @if($item_confirmed->action=='increment')
+                                {{--    <td class="text-success align-middle text-center " >
+                                        <span class="font-weight-bolder text-success"> <span class="fas fa-arrow-up f-10"></span></span>
+                                    </td>--}}
+                                <td class="text-success text-success font-weight-normal align-middle font-weight-bold ">
+                                    R$ {{ number_format($item_confirmed->amount,2) }}
+                                </td>
+                            @else
+                                {{--<td class="text-danger align-middle text-center " >
+                                    <span class="font-weight-bolder text-danger"> <span class="fas fa-arrow-down f-10"></span></span>
+                                </td>--}}
+                                <td class=" text-danger font-weight-normal align-middle  font-weight-bold">
+                                    R$ {{ number_format($item_confirmed->amount,2) }}
+                                </td>
+                            @endif
+
                         </tr>
                     @endforeach
                 </table>
+                <div class="text-center pt-3 ">
+                    <div class="d-inline-block f-10 font-weight-bolder">
+                        {{ $balance->links('vendor.pagination.bootstrap-4') }}
+                    </div>
+                </div>
             </div>
         </div>
     @endif
 
-    @if(count($donations))
+    @if(isset($donations) && count($donations))
         <hr class="my-5 ">
         <div class="container">
 

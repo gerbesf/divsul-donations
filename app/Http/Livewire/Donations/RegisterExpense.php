@@ -28,7 +28,7 @@ class RegisterExpense extends Component
             'id_donation'=>null,
             'action'=>'decrement',
             'description'=>$this->description,
-            'amount'=>$this->amount,
+            'amount'=>(float) str_replace(',','.', $this->amount),
             'timestamp'=>Carbon::now(),
         ]);
 

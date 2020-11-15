@@ -23,6 +23,7 @@ Route::group([
     Route::post('/donation/register','LandingController@send_register')->name('send_register');
     Route::get('/history','LandingController@history')->name('history');
     Route::get('/contact','LandingController@contact')->name('contact');
+    Route::get('/error','LandingController@error')->name('error');
 
     Route::get('locale/{locale}', function ($locale){
         session()->put('locale',$locale);

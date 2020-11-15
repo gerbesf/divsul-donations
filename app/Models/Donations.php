@@ -15,6 +15,7 @@ class Donations extends Model
         'id_method',
         'currency',
         'currency_received',
+        'email',
         'amount',
         'amount_received',
         'receipt',

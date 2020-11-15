@@ -63,6 +63,7 @@ class LandingController extends Controller
             'hide_profile'=>boolval($request->get('hide_profile')),
             'date_created'=>Carbon::now(),
             'id_profile' => $findPlayer->id,
+            'email' => $request->get('email'),
             'id_method' => $request->get('id_method'),
             'currency' => $request->get('currency'),
             'amount' => number_format( (float) $request->get('amount'),2,'.',''),
@@ -87,14 +88,14 @@ class LandingController extends Controller
             Donations::create($scope);
         }
 
-        return redirect(route('history'));
+        return redirect(route('history').'?balance=all');
 
     }
     public function history(){
 
         return view('frontend.history',[
-            'title'=>'history_title',
-            'description'=>'history_description',
+            #'title'=>'history_title',
+            #'description'=>'history_description',
         ]);
     }
     public function contact(){
@@ -102,6 +103,14 @@ class LandingController extends Controller
         return view('frontend.contact',[
             'title'=>'contact_title',
             'description'=>'contact_description',
+        ]);
+    }
+
+    public function error(){
+
+        return view('frontend.error',[
+            'title'=>'error_title',
+            'description'=>'error_description',
         ]);
     }
 }

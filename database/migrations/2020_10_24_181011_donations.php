@@ -20,6 +20,7 @@ class Donations extends Migration
             $table->boolean('hide_profile')->default(false);
             $table->bigInteger('id_profile');
             $table->bigInteger('id_method');
+            $table->string('email')->nullable();
             $table->string('currency');
             $table->string('currency_received')->default('BRL');
             $table->float('amount');
