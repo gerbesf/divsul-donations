@@ -42,7 +42,7 @@
                                             minimumInputLength: 2,
                                             minimumResultsForSearch: Infinity,
                                             ajax: {
-                                                url: 'http://divsul-donations.zurox.com.br/admin/donations/players/search',
+                                                url: '{{ Request::root() }}/admin/donations/players/search',
                                                 dataType: 'json',
                                             }
                                         });
