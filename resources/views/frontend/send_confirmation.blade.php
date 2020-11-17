@@ -63,7 +63,7 @@
                         <div class="form-group">
                             <label><span class="text-danger">*</span> {{ __('app.hash') }}  </label>
                             <input name="hash" class="form-control " placeholder="Your Hash ID" >
-                            @error('amount')
+                            @error('hash')
                             <div class="small text-danger">{{ $message }}</div>
                             @enderror
                         </div>

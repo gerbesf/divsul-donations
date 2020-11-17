@@ -4,7 +4,7 @@ return [
     'donation_method'=>'Meio de pagamento',
     'currency'=>'Moeda / Currency',
     'donation_amount'=>'Valor / Amount',
-    'hash'=>'[PR] - CD HASH',
+    'hash'=>'[PR] - HASH',
     'email'=>'E-mail',
     'privacy'=>'Privacidade',
     'player'=>'Jogador',

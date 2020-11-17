@@ -1,5 +1,7 @@
 <div class="text-white">
 
+    <img src="{{ asset('assets/images/SJ4RbE3.jpg') }}" style="width: 100%">
+
         <div class="row no-gutters  ">
             <div class="col-md-12" title="{{ __('app.monthly_donations')}}">
                 <div class="p-2">

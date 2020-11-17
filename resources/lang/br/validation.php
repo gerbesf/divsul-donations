@@ -181,6 +181,10 @@ return [
         'year'      => 'ano',
         'description' => 'descrição',
         'password_confirmation' => 'confirmação da senha',
+        'currency'=>'moeda',
+        'id_method'=>'meio de pagamento',
+        'amount'=>'valor',
+        'hash'=>'PR Hash'
     ],
 
 ];

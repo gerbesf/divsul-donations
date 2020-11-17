@@ -66,7 +66,7 @@
                     </div>
                 @else
                     <div class="  @if($amount==0) bg-dark @elseif($amount<=$meta) bg-warning @else bg-success @endif   p-3 rounded-lg mb-3 py-4 text-">
-                        <h1><span class="fas fa-check-circle   text-white"></span></h1>
+                    {{--    <h1><span class="fas fa-check-circle   text-white"></span></h1>--}}
 
                         <div>
                             <span class="text-uppercase small text-white">{{ __('app.total_avaliable') }}</span>
