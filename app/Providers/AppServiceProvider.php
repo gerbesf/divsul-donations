@@ -13,6 +13,12 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
+
+        if( env('APP_SSL')){
+            $this->app['request']->server->set('HTTPS', true);
+            \URL::forceScheme('https');
+        }
+
     }
 
     /**
