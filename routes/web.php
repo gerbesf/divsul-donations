@@ -24,6 +24,7 @@ Route::group([
     Route::get('/history','LandingController@history')->name('history');
     Route::get('/contact','LandingController@contact')->name('contact');
     Route::get('/error','LandingController@error')->name('error');
+    Route::get('/painel','LandingController@painel')->name('painel');
 
     Route::get('locale/{locale}', function ($locale){
         session()->put('locale',$locale);

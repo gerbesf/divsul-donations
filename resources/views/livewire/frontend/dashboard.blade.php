@@ -10,10 +10,10 @@
                         <div class=" text-lg-">{{ __('app.waiting_payment_description') }}</div>
                         <div class="py-2">
                             <div class="">
-                                @foreach($pending_donations_amount as $currency=>$items)
+                                @foreach($pending_donations_amount as $currencys=>$items)
                                     <div class="d-inline-block bg-secondary col-2 text-white  rounded ">
                                         <div class="row no-gutters ">
-                                            <div class="col-md-6 text-lg-right pr-lg-1">{{ $currency }}</div>
+                                            <div class="col-md-6 text-lg-right pr-lg-1">{{ $currencys }}</div>
                                             <div class="col-md-6 pl-lg-1 font-weight-bolder">{{ number_format(collect($items)->sum('amount'),2,',','.') }} <span class="fa fa-refresh"></span> </div>
                                         </div>
                                     </div>

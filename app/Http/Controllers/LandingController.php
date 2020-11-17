@@ -113,4 +113,11 @@ class LandingController extends Controller
             'description'=>'error_description',
         ]);
     }
+
+
+    public function painel(){
+
+        return view('frontend.painel');
+    }
+
 }

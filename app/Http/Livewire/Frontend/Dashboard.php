@@ -11,6 +11,7 @@ class Dashboard extends Component
 {
 
 
+    public $layout;
     public $currency = 'R$';
     public $meta = 0;
     public $month_dontations = 0;
@@ -20,11 +21,19 @@ class Dashboard extends Component
     public $amount = 0;
     public $pending_donations_amount = 0;
 
+
+    public function mount( $layout = false) {
+        if($layout){
+            $this->layout = '_'.$layout;
+        }
+    }
+
     public function populate(){
 
         $Balance = Balance::first();
 
         $this->currency = $Balance->currency;
+       # dd($this->currency);
         $this->meta = $Balance->meta;
         $this->amount = $Balance->amount;
 
@@ -57,6 +66,6 @@ class Dashboard extends Component
     public function render()
     {
         $this->populate();
-        return view('livewire.frontend.dashboard');
+        return view('livewire.frontend.dashboard'.$this->layout);
     }
 }
