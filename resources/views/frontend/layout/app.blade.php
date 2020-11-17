@@ -16,7 +16,7 @@
     <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge" /> -->
     <meta name="description" content="" />
     <meta name="keywords" content="">
-    <meta name="author" content="Codedthemes" />
+    <meta name="author" content="Ferreira" />
     <!-- Favicon icon -->
     <link rel="icon" href="{{ request()->root() }}/assets/images/favicon.png" type="image/x-icon">
 
