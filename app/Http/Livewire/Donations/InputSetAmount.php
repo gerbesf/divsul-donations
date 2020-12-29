@@ -17,8 +17,12 @@ class InputSetAmount extends Component
 
     public function submit(){
 
+        $amount = number_format( floatval(
+            str_replace(',','.',str_replace('.','',$this->amount_received))
+        ) ,2,'.','');
+
         Donations::where('id',$this->id_donation)->update([
-           'amount_received' => number_format($this->amount_received,2,'.','')
+           'amount_received' => $amount
         ]);
 
         return redirect(route('donations_admin').'?confirmed=false');

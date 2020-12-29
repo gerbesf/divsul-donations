@@ -19,11 +19,17 @@ class Collection extends Component
         dispatch( new DonationConfirm( $id , session()->get('user_id')));
     }
 
-
     public function denyDonation($id_donation){
-
         Donations::where('id',$id_donation)->delete();
     }
+
+    public function modifyTotal($id_donation){
+        $donation = Donations::where('id',$id_donation)->update([
+            'amount_received'=>null
+        ]);
+        $this->redirect('/admin/donations?confirmed=false');
+    }
+
     public function render()
     {
         return view('livewire.donations.collection',[

@@ -3,7 +3,7 @@
 
     <div class="container" style="min-height: 70vh">
         <div class="row justify-content-center ">
-            <div class=" col-md-4">
+            <div class=" col-xl-6">
 
 
                 <div class="card card-body">
@@ -44,39 +44,42 @@
                         </div>
 
                         <div class="form-group">
-                            <label>{{ __('app.email') }}</label>
-                            <input name="email" type="email" class="form-control" placeholder="Your Donation Amount" >
+                            <label>{{ ucfirst(__('app.email')) }}</label>
+                            <input name="email" type="email" class="form-control" placeholder="{{ ucfirst(__('app.email_placeholder')) }}" >
                             @error('email')
                             <div class="small text-danger">{{ $message }}</div>
                             @enderror
                         </div>
 
-
                         <div class="form-group">
                             <label><span class="text-danger">*</span> {{ __('app.donation_amount') }}</label>
-                            <input name="amount" class="form-control money2" placeholder="Your Donation Amount" >
+                            <input name="amount" class="form-control money2" placeholder="{{ ucfirst(__('app.amount_placeholder')) }}" >
                             @error('amount')
                             <div class="small text-danger">{{ $message }}</div>
                             @enderror
                         </div>
 
                         <div class="form-group">
+                            <div class="float-right">
+                                <button type="button" class="btn btn-link p-0" data-toggle="modal" data-target="#hashModal">
+                                    {{ __('app.how_to') }}
+                                </button>
+                            </div>
                             <label><span class="text-danger">*</span> {{ __('app.hash') }}  </label>
-                            <input name="hash" class="form-control " placeholder="Your Hash ID" >
+                            <input name="hash" class="form-control " placeholder="{{ ucfirst(__('app.hash_placeholder')) }}" >
                             @error('hash')
                             <div class="small text-danger">{{ $message }}</div>
                             @enderror
                         </div>
 
                         <div class="pb-1">
-                            <div>{{ __('app.privacy') }}</div>
+                            <div>{{ ucfirst(__('app.privacy')) }}</div>
                             <input type="checkbox" name="hide_profile" id="hide_profile" class="checkbox" value="true" >
-                            <label for="hide_profile">{{ __('app.hide_profile') }}</label>
-
+                            <label for="hide_profile">{{ ucfirst(__('app.hide_profile')) }}</label>
                         </div>
 
                         <div class="form-group">
-                            <button class="btn btn-success btn-block">Register</button>
+                            <button class="btn btn-success btn-block">{{ ucfirst(__('app.send_confirmation')) }}</button>
                         </div>
 
                     </form>
@@ -86,7 +89,20 @@
             </div>
         </div>
     </div>
-
+    <div class="modal fade" id="hashModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="">
+                    <img src="{{ asset('cdhash.jpg') }}" style="width: 100%">
+                </div>
+            </div>
+        </div>
+    </div>
 @endsection
 @section('js-footer')
     <script>

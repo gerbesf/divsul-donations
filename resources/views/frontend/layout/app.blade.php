@@ -21,106 +21,41 @@
     <link rel="icon" href="{{ request()->root() }}/assets/images/favicon.png" type="image/x-icon">
 
     <!-- vendor css -->
-    <link rel="stylesheet" href="{{ request()->root() }}/assets/css/style.css">
+
+    <link rel="stylesheet" href="./assets/css/dashlite.css?ver=2.2.0">
+    <link id="skin-default" rel="stylesheet" href="./assets/css/theme.css?ver=2.2.0">
+
+    <link rel="stylesheet" href="{{ request()->root() }}/frontend/assets/css/dashlite.css">
+    <link rel="stylesheet" href="{{ request()->root() }}/frontend/assets/css/skins/theme-blue.css">
     <link rel="stylesheet" href="{{ request()->root() }}/css/app.css">
     <script src="{{ request()->root() }}/assets/js/vendor-all.min.js"></script>
 
     @livewireStyles
 
 </head>
+<body>
+<div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 bg-white border-bottom shadow-sm">
+    <h5 class="my-0 mr-md-auto font-weight-normal">
+        <a href="/" class="text-dark">  <img src="https://www.divsul.org/logo-xs.png"> <span class="d-none d-md-inline-block">Divsul - {{ ucfirst(__('app.donation_center')) }}</span></a>
+    </h5>
+    <nav class="my-2 my-md-0 mr-md-3">
+        <a class="p-2 text-dark" href="{{ route('history') }}?balance=all">{{ __('menu.history') }}</a>
+        <a class="p-2 text-dark" href="{{ route('how_to_donate') }}">{{ __('menu.how_to_donate') }}</a>
+        <a class="p-2 text-dark d-none d-md-inline-block" href="{{ route('send_confirmation') }}">{{ __('menu.send_confirmation') }}</a>
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 
-<body class="bg-light">
-
-
-
-<!-- [ Pre-loader ] start -->
-<div class="loader-bg">
-    <div class="loader-track">
-        <div class="loader-fill"></div>
-    </div>
-</div>
-<section>
-    <nav class="navbar pcoded-header navbar-expand-lg navbar-dark bg-black header-dark ">
-        <div class="container">
-            <div class="m-header">
-                <!-- <a class="mobile-menu" id="mobile-collapse" href="#!"><span></span></a> -->
-                <a href="/" class="b-brand">
-                    <!-- ========   change your logo hear   ============ -->
-                    <img src="https://www.divsul.org/logo-xs.png">
-                </a>
-                <a href="#!" class="mob-toggler">
-                    <i class="feather icon-more-vertical"></i>
-                </a>
+                <img src="https://raw.githubusercontent.com/yammadev/flag-icons/master/png/{{ strtoupper(app()->getLocale()) }}.png">
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="/locale/us"><img src="https://raw.githubusercontent.com/yammadev/flag-icons/master/png/US.png"> Global </a>
+                <a class="dropdown-item" href="/locale/br"><img src="https://raw.githubusercontent.com/yammadev/flag-icons/master/png/BR.png"> Português</a>
             </div>
-            <div class="collapse navbar-collapse">
-                <ul class="navbar-nav mr-auto">
-                </ul>
-                <ul class="navbar-nav ml-auto">
-
-                    <li class="nav-item">
-                        <a href="/">{{ __('menu.home') }}</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="{{ route('history') }}?balance=all">{{ __('menu.history') }}</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="{{ route('how_to_donate') }}">{{ __('menu.how_to_donate') }}</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="{{ route('send_confirmation') }}">{{ __('menu.send_confirmation') }}</a>
-                    </li>
-                    {{--  <li class="nav-item">
-                          <a href="{{ route('contact') }}">{{ __('menu.contact') }}</a>
-                      </li>--}}
-                    {{--<li class="nav-item">
-                        <div class="dropdown">
-                            <a class="dropdown-toggle h-drop" href="#" data-toggle="dropdown">
-                                <span class="flag-icon flag-icon-{{ session()->get('locale') }}"></span>
-                            </a>
-                            <div class="dropdown-menu profile-notification dropdown-menu-right">
-                                <ul class="pro-body">
-                                    <li><a class="dropdown-item" href="{{ url('locale/us') }}" ><span class="flag-icon flag-icon-us"></span> Global</a></li>
-                                    <li><a class="dropdown-item" href="{{ url('locale/br') }}" ><span class="flag-icon flag-icon-br"></span> Brazil</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </li>--}}
-                </ul>
-
-            </div>
-        </div>
     </nav>
-
-</section>
-
-@if(isset($title))
-<header class=" headerpos-fixed bg-muted meta-header">
-    <div class="pcoded-content container">
-        <div class="row">
-            <div class="col-md-12 text-center">
-                <h3 class="text-dark"> {{ __('app.'.$title) }}</h3>
-                <p class="mb-0 text-secondary"> {{ __('app.'.$description) }}</p>
-            </div>
-        </div>
-    </div>
-</header>
-@endif
-
-@yield('main')
-
-<div class="pcoded-content container">
-    <div class="row ">
-        <div class="col-md-6">
-            <div class="">
-                <iframe src="https://ghbtns.com/github-btn.html?user=gerbesf&repo=divsul-donations&type=star&count=true" frameborder="0" scrolling="0" width="150" height="20" title="GitHub"></iframe>
-            </div>
-        </div>
-        <div class="col-md-6 text-lg-right">
-            <small>{{ env('APP_NAME') }} - <a href="{{ env('APP_URL_COPY') }}" target="_blank" >{{ str_replace(['http://','https://'],'',env('APP_URL_COPY')) }}</small>
-        </div>
-    </div>
 </div>
-
+<div class="mb-5 "></div>
+<div >
+    @yield('main')
+</div>
 @livewireScripts
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css" integrity="sha512-Cv93isQdFwaKBV+Z4X8kaVBYWHST58Xb/jVOcV9aRsGSArZsgAnFIhMpDoMDcFNoUtday1hdjn0nGp3+KZyyFw==" crossorigin="anonymous" />
 <script src="{{ request()->root() }}/assets/js/plugins/bootstrap.min.js"></script>

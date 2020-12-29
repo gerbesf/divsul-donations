@@ -12,6 +12,7 @@ use Illuminate\Http\Request;
 class LandingController extends Controller
 {
     public function landing(){
+        return redirect('/history?balance=all');
         return view('frontend.welcome',[
             'title'=>'welcome_title',
             'description'=>'welcome_description',
@@ -59,6 +60,10 @@ class LandingController extends Controller
             return redirect()->back();
         }
 
+        $amount = number_format( floatval(
+            str_replace(',','.',str_replace('.','',$request->get('amount')))
+        ) ,2,'.','');
+
         $scope = [
             'hide_profile'=>boolval($request->get('hide_profile')),
             'date_created'=>Carbon::now(),
@@ -66,9 +71,9 @@ class LandingController extends Controller
             'email' => $request->get('email'),
             'id_method' => $request->get('id_method'),
             'currency' => $request->get('currency'),
-            'amount' => number_format( (float) $request->get('amount'),2,'.',''),
-            'id_method' => $request->get('id_method'),
+            'amount' => $amount,
         ];
+
 
         if($request->get('currency')=="BRL"){
             $scope['amount_receive']=$request->get('amount');

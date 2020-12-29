@@ -13,7 +13,7 @@
                     <div class=" col-md-11 col-xl-8 ">
                         <div class="shadow-sm rounded bg-white ">
 
-                            <div class="accordion " id="accordionExample">
+                            <div class="accordion " id="accordionExample">{{--
                                 <div class="border-bottom py-3 ">
                                     <div id="headingOne">
                                         <h5 class="mb-0"><a href="#!" class="acc- px-4" data-toggle="collapse" data-target="#collapseOne"
@@ -28,11 +28,9 @@
                                            <p>
                                                Para manter os servidores e a estrutura de apoio online, a DIVSUL contrata serviços de hospedagem e proteção Anti DDoS de empresas terceirizadas sob um custo monetário mensal. Dessa forma, contamos com o apoio dos jogadores para continuar com o servidor ativo e fornecendo um serviço de qualidade para o público latino americano.
                                            </p>
-                                           <p>Quem administra as doações?</p>
-                                           <p> As doações são administradas pelo admin master <b>JP_BRCTBA</b>.</p>
                                        </div>
                                     </div>
-                                </div>
+                                </div>--}}
                                 @foreach($methods as $method)
                                 <div class="border-bottom py-3">
                                     <div id="headingTwo">

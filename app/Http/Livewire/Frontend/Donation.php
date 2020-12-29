@@ -36,9 +36,6 @@ class Donation extends Component
 
     protected function getBalance(){
 
-
-
-
         if( $this->balance_query == 'all' ) {
             $query = \App\Models\BalanceHistory::orderBy('timestamp','desc')->paginate(6);
         }else{

@@ -18,38 +18,43 @@
                     </li>
                 </ul>
 
-
-{{--
-
-                <button wire:click="setBalance('all')" class="btn btn-sm @if($balance_query=="all") btn-dark @else btn-link text-muted @endif ">All records</button>
-                <button wire:click="setBalance('increment')" class="btn btn-sm @if($balance_query=="increment") btn-dark @else btn-link text-muted @endif">Donations</button>
-                <button wire:click="setBalance('decrement')" class="btn btn-sm @if($balance_query=="decrement") btn-dark @else btn-link text-muted @endif">Expenses</button>
---}}
-
-
             </div>
             <div class="table-responsive">
-                <table class="table border font-weight-normal small table-sm rounded table-sm m-0 bg-white shadow table-borderless table-striped">
+                <table class="table border  rounded bg-white shadow table-borderless table-striped">
                     <thead>
                     <tr>
-                        <th class="text-lg-right"  style="width:55px">{{ __('app.date') }}</th>
+                        <th class="text-lg-right"  style="max-width:155px">{{ ucfirst(__('app.date')) }}</th>
                         {{--<th  class=" " style="width:55px"></th>--}}
-                        <th>{{ __('app.player') }} {{ __('app.or') }} {{ __('app.description') }}</th>
-                        <th  class=" " style="width:155px">Amount</th>
+                        <th  class=" " style="min-width: 100px" > {{ ucfirst(__('app.amount')) }}</th>
+                        <th style="width: 80%"> {{ ucfirst(__('app.description')) }}</th>
                     </tr>
                     </thead>
                     @if( !count($balance) )
                         <tr>
                             <td colspan="3" class="text-center">{{ __('app.empty_results') }}</td>
                         </tr>
-
                     @endif
                     @foreach($balance as $item_confirmed)
                         <tr>
                             <td class="text-right align-middle ">
-                                {{ \Carbon\Carbon::parse($item_confirmed->timestamp)->format(env('APP_DATEFORMAT')) }}
+                                {{ \Carbon\Carbon::parse($item_confirmed->timestamp)->format(env('APP_DATEFORMAT') ?: 'Y-m-d H:i') }}
                             </td>
 
+                            @if($item_confirmed->action=='increment')
+                                {{--    <td class="text-success align-middle text-center " >
+                                        <span class="font-weight-bolder text-success"> <span class="fas fa-arrow-up f-10"></span></span>
+                                    </td>--}}
+                                <td class="text-success text-success font-weight-normal align-middle font-weight-bold ">
+                                    + R$ {{ number_format($item_confirmed->amount,2) }}
+                                </td>
+                            @else
+                                {{--<td class="text-danger align-middle text-center " >
+                                    <span class="font-weight-bolder text-danger"> <span class="fas fa-arrow-down f-10"></span></span>
+                                </td>--}}
+                                <td class=" text-danger font-weight-normal align-middle  font-weight-bold">
+                                    - R$ {{ number_format($item_confirmed->amount,2) }}
+                                </td>
+                            @endif
                                 <td class="align-middle ">
                                     @if($item_confirmed->donation)
                                         @if( $item_confirmed->donation->hide_profile == true)
@@ -60,7 +65,7 @@
                                             <span class="f text-primary">{{ $item_confirmed->donation->profile->nickname }}</span>
                                         @endif
                                     @else
-                                        <div> {{ $item_confirmed->description }}</div>
+                                        <span> {{ $item_confirmed->description }}</span>
                                     @endif
                                 </td>
                           {{--  <td class=" align-middle border-left">
@@ -69,21 +74,6 @@
                                 @endif
                             </td>--}}
 
-                            @if($item_confirmed->action=='increment')
-                                {{--    <td class="text-success align-middle text-center " >
-                                        <span class="font-weight-bolder text-success"> <span class="fas fa-arrow-up f-10"></span></span>
-                                    </td>--}}
-                                <td class="text-success text-success font-weight-normal align-middle font-weight-bold ">
-                                    R$ {{ number_format($item_confirmed->amount,2) }}
-                                </td>
-                            @else
-                                {{--<td class="text-danger align-middle text-center " >
-                                    <span class="font-weight-bolder text-danger"> <span class="fas fa-arrow-down f-10"></span></span>
-                                </td>--}}
-                                <td class=" text-danger font-weight-normal align-middle  font-weight-bold">
-                                    R$ {{ number_format($item_confirmed->amount,2) }}
-                                </td>
-                            @endif
 
                         </tr>
                     @endforeach

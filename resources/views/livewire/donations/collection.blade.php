@@ -46,10 +46,12 @@
                         <div>{{ $donation->method->name }}</div>
                         <div><small>{{ $donation->email }}</small></div>
                     </td>
-                    <td>{{ $donation->currency }} <b>{{ $donation->amount }}</b></td>
+                    <td>{{ $donation->currency }} <b>{{ number_format($donation->amount ,2,',','.') }}</b></td>
                     <td>
+
                         @if($donation->amount_received)
-                            {{ $donation->currency_received }} <b> {{ number_format($donation->amount_received )}}</b>
+                            {{ $donation->currency_received }} <b> {{ number_format($donation->amount_received ,2,',','.')}}</b>
+                            <button class="btn btn-sm " type="button" wire:click="modifyTotal({{ $donation->id }})"><span class="fa fa-edit"></span></button>
                         @else
                             @livewire('donations.input-set-amount',['id'=>$donation->id])
                         @endif

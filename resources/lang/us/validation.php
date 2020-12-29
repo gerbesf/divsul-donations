@@ -147,6 +147,14 @@ return [
     |
     */
 
-    'attributes' => [],
+    'attributes' => [
+
+        'description' => 'description',
+        'password_confirmation' => 'password confirmation',
+        'currency'=>'currency',
+        'id_method'=>'donation method',
+        'amount'=>'amount',
+        'hash'=>'PR Hash'
+    ],
 
 ];
