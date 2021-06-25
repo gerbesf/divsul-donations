@@ -1,7 +1,7 @@
 <div>
 
 
-    <section class="">
+    <section class="">{{--
         @if($pending_donations)
             <div class="row  mb-3">
                 <div class="col-md-3">
@@ -24,7 +24,7 @@
                 </div>
             </div>
         @endif
-
+--}}
 
         @php
             $color = 'primary';
