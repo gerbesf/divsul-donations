@@ -43,9 +43,9 @@ return [
     'empty_results' => 'There is no record',
     'send_confirmation_title' => 'Enviar comprovante',
     'send_confirmation_description' => 'Registre a sua doação para receber pontos',
-    'tab_all_records' => 'Resumo',
-    'tab_donations' => 'Doações',
-    'tab_expenses' => 'Despesas',
+    'tab_all_records' => 'All',
+    'tab_donations' => 'Donations',
+    'tab_expenses' => 'Expenses',
     'error_title' => 'Deu ruim',
     'error_description' => 'Algo de errado não está certo.',
     'error' => [
