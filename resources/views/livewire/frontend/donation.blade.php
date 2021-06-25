@@ -26,7 +26,7 @@
                         <th class="text-lg-right"  style="max-width:155px">{{ ucfirst(__('app.date')) }}</th>
                         {{--<th  class=" " style="width:55px"></th>--}}
                         <th  class=" " style="min-width: 100px" > {{ ucfirst(__('app.amount')) }}</th>
-                        <th style="width: 80%"> {{ ucfirst(__('app.description')) }}</th>
+                        <th style="width: 50%"> {{ ucfirst(__('app.description')) }}</th>
                     </tr>
                     </thead>
                     @if( !count($balance) )

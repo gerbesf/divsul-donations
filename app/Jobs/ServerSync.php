@@ -46,6 +46,7 @@ class ServerSync implements ShouldQueue
                     ->get();
             });
 
+           # dd($response);
             foreach(explode("\n",$response) as $line){
                 if(strlen($line)>=10){
                     dispatch_now( new CdHashLine( $line ));

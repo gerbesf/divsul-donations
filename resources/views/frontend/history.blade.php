@@ -1,18 +1,20 @@
 @extends('frontend.layout.app')
 @section('main')
     <section>
-        <div class=" ">
-            <header class=" headerpos-fixed bg-muted meta-header">
-                <div class="pcoded-content container">
-                    <div class="row">
-                        <div class="col-md-12 text-left">
-                            @livewire('frontend.dashboard')
-                        </div>
+        <div class="container ">
+
+            <div class="row">
+                <div class="col-md-2">
+                    <div class="card card-body card-bordered">
+                        @livewire('frontend.dashboard')
                     </div>
                 </div>
-            </header>
+                <div class="col-md-10">
+                    @livewire('frontend.donation')
 
-            @livewire('frontend.donation')
+                </div>
+            </div>
+
         </div>
     </section>
 

@@ -4,6 +4,7 @@ namespace App\Http\Livewire\Donations;
 
 use App\Models\Donations;
 use Livewire\Component;
+use Mockery\Exception;
 
 class InputSetAmount extends Component
 {
@@ -17,15 +18,25 @@ class InputSetAmount extends Component
 
     public function submit(){
 
-        $amount = number_format( floatval(
-            str_replace(',','.',str_replace('.','',$this->amount_received))
-        ) ,2,'.','');
+        try{
 
-        Donations::where('id',$this->id_donation)->update([
-           'amount_received' => $amount
-        ]);
+            $num = str_replace(['.'],'',$this->amount_received);
+            $num = str_replace([','],'.',$num);
+            if( !is_numeric($num)){
+                throw new Exception(' Valor não é númerico ');
+            }
 
-        return redirect(route('donations_admin').'?confirmed=false');
+            $amount = $num;
+
+            Donations::where('id',$this->id_donation)->update([
+                'amount_received' => $amount
+            ]);
+
+            return redirect(route('donations_admin').'?confirmed=false');
+
+        }catch (Exception $exception){
+            throw new Exception(' Errro o formatar preço');
+        }
 
     }
 

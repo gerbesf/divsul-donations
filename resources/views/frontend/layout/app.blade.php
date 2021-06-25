@@ -26,7 +26,7 @@
     <link id="skin-default" rel="stylesheet" href="./assets/css/theme.css?ver=2.2.0">
 
     <link rel="stylesheet" href="{{ request()->root() }}/frontend/assets/css/dashlite.css">
-    <link rel="stylesheet" href="{{ request()->root() }}/frontend/assets/css/skins/theme-blue.css">
+    <link rel="stylesheet" href="{{ request()->root() }}/frontend/assets/css/skins/theme-egyptian.css">
     <link rel="stylesheet" href="{{ request()->root() }}/css/app.css">
     <script src="{{ request()->root() }}/assets/js/vendor-all.min.js"></script>
 
@@ -34,14 +34,14 @@
 
 </head>
 <body>
-<div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 bg-white border-bottom shadow-sm">
+<div class="d-flex  flex-column flex-md-row align-items-center p-3 px-md-4 bg-dark border-bottom shadow-sm">
     <h5 class="my-0 mr-md-auto font-weight-normal">
-        <a href="/" class="text-dark">  <img src="https://www.divsul.org/logo-xs.png"> <span class="d-none d-md-inline-block">Divsul - {{ ucfirst(__('app.donation_center')) }}</span></a>
+        <a href="/" class="text-white">  <img src="https://www.divsul.org/logo-xs.png"> <span class="d-none d-md-inline-block">Divsul - {{ ucfirst(__('app.donation_center')) }}</span></a>
     </h5>
-    <nav class="my-2 my-md-0 mr-md-3">
-        <a class="p-2 text-dark" href="{{ route('history') }}?balance=all">{{ __('menu.history') }}</a>
-        <a class="p-2 text-dark" href="{{ route('how_to_donate') }}">{{ __('menu.how_to_donate') }}</a>
-        <a class="p-2 text-dark d-none d-md-inline-block" href="{{ route('send_confirmation') }}">{{ __('menu.send_confirmation') }}</a>
+    <nav class="my-2 my-md-0 mr-md-3 ">
+        {{--<a class="p-2 text-dark" href="{{ route('history') }}?balance=all">{{ __('menu.history') }}</a>--}}
+        <a class="p-2 text-  text-warning" href="{{ route('how_to_donate') }}">{{ __('menu.how_to_donate') }}</a>
+        <a class="p-2 text- d-none d-md-inline-block text-warning" href="{{ route('send_confirmation') }}">{{ __('menu.send_confirmation') }}</a>
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 
                 <img src="https://raw.githubusercontent.com/yammadev/flag-icons/master/png/{{ strtoupper(app()->getLocale()) }}.png">

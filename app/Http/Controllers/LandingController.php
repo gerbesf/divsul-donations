@@ -12,14 +12,16 @@ use Illuminate\Http\Request;
 class LandingController extends Controller
 {
     public function landing(){
+
         return redirect('/history?balance=all');
+
         return view('frontend.welcome',[
             'title'=>'welcome_title',
             'description'=>'welcome_description',
         ]);
+
     }
     public function how_to_donate(){
-
 
         $methods = DonationsMethods::get();
 
@@ -51,12 +53,12 @@ class LandingController extends Controller
         ]);
 
     }
-    public function send_register( CreateDonation $request ){
 
+    public function send_register( CreateDonation $request ){
 
         $findPlayer = Profiles::where('hash',$request->hash)->first();
         if( !isset( $findPlayer->nickname )){
-            session()->flash('error', 'Hash Not Found!');
+            session()->flash('error', 'Hash Not Found! - please check your "PR CD-Hash Code" | Por favor verifique o código da sua hash');
             return redirect()->back();
         }
 

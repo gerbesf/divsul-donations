@@ -25,7 +25,7 @@ return [
     'monthly_goal'=>'Meta Mensal',
     'monthly_donations'=>'Doações neste mês',
     'waiting_payment'=>'Aguardando Confirmação',
-    'waiting_payment_description'=>'Saldo aguardando confirmação pelos doadores',
+    'waiting_payment_description'=>'Saldo aguardando confirmação',
     'total_avaliable'=>'Em caixa',
     'donate_now'=>'Doar agora',
     'email_placeholder'=>'Informe o seu e-mail para facilicar a busca',
