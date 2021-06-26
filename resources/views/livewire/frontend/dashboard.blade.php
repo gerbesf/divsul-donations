@@ -1,17 +1,17 @@
 <div>
 
 
-    <section class="">{{--
+    <section class="">
         @if($pending_donations)
             <div class="row  mb-3">
-                <div class="col-md-3">
+                <div class="col-md-12">
                     <div class="">
-                        <h4 class=" py-2 mb-0 pb-0 text-left font-weight-bolder t "> {{ __('app.waiting_payment') }} ({{ $pending_donations }})</h4>
+                        <div class=" py-2 mb-0 pb-0 text-left font-weight-bolder t "> {{ __('app.waiting_payment') }} ({{ $pending_donations }})</div>
                         <div class=" text-lg-">{{ __('app.waiting_payment_description') }}</div>
                         <div class="py-2">
                             <div class="">
                                 @foreach($pending_donations_amount as $currencys=>$items)
-                                    <div class="d-inline-block bg-secondary col-2 text-white  rounded ">
+                                    <div class=" bg-secondary  text-white mb-1  rounded ">
                                         <div class="row no-gutters ">
                                             <div class="col-md-6 text-lg-right pr-lg-1">{{ $currencys }}</div>
                                             <div class="col-md-6 pl-lg-1 font-weight-bolder">{{ number_format(collect($items)->sum('amount'),2,',','.') }} <span class="fa fa-refresh"></span> </div>
@@ -24,7 +24,6 @@
                 </div>
             </div>
         @endif
---}}
 
         @php
             $color = 'primary';
@@ -44,7 +43,7 @@
         @if($amount<=0)
             <dl>
                <dt>{{ __('app.total_avaliable') }}</dt>
-               <dd><h4 class="text-white">{{ $currency }} {{ number_format($amount,2,',','.') }}</h4></dd>
+               <dd><h4 class="text-dark">{{ $currency }} {{ number_format($amount,2,',','.') }}</h4></dd>
             </dl>
         @else
             <dl>

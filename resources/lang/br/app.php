@@ -24,7 +24,7 @@ return [
     'see_donations'=>'Ver todas as doações',
     'monthly_goal'=>'Meta Mensal',
     'monthly_donations'=>'Doações neste mês',
-    'waiting_payment'=>'Aguardando Confirmação',
+    'waiting_payment'=>'Confirmação',
     'waiting_payment_description'=>'Saldo aguardando confirmação',
     'total_avaliable'=>'Em caixa',
     'donate_now'=>'Doar agora',

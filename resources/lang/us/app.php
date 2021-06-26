@@ -12,7 +12,7 @@ return [
     'help_description'=>'The community depends on you!',
     'monthly_goal'=>'Monthly Target',
     'monthly_donations'=>'Donations this month',
-    'waiting_payment'=>'Waiting confirmation',
+    'waiting_payment'=>'Confirmation',
     'total_avaliable'=>'Balance',
     'donate_now'=>'Donate Dow',
 
